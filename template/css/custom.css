@@ -1,0 +1,13 @@
+.logo-img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Add responsive styles */
+  @media (max-width: 768px) {
+    /* Adjust the container padding for smaller screens */
+    .container {
+      padding: 20px;
+    }
+  }
