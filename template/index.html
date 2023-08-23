@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <style>
         body {
@@ -30,12 +29,11 @@
 
         @media (max-width: 375px) and (max-height: 667px) {
             .image img.mainImage {
-                height: 10px; /* Adjust this value as needed */
+                height: 10px;
                 width: 10px;
             }
         }
 
-        /* Responsive adjustments for mobile and tablet */
         @media (max-width: 768px) {
             .center-container {
                 flex-direction: column;
@@ -63,7 +61,6 @@
             }
         }
 
-        /* Black and white effect using grayscale filter */
         .image img.mainImage {
             height: 50vh;
             width: 30vw;
@@ -72,7 +69,6 @@
             margin: -6px;
         }
 
-        /* Styles for the arrow icon */
         .image img.arrow {
             position: absolute;
             top: 30%;
@@ -82,33 +78,40 @@
             height: 150px;
         }
 
-        /* Button style and hover effect */
         .btn-join {
             /* Your button styles here */
         }
 
-        /* Remove the default margin for images */
         .image img {
             margin: 0;
         }
+
+        @keyframes swipeUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .quote {
+            animation: swipeUp 1s ease-out;
+            transform-origin: center bottom;
+            opacity: 0;
+        }
     </style>
 </head>
-
 <body>
     <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
         <!-- ... Navbar code remains unchanged ... -->
     </nav>
-    <div class="main">
-
-        <!-- You can change the black color for the filter with those colors: blue, green, red, orange -->
-
+    <div class="main" >
         <div class="container">
-
-            <!-- Add the new layout for the logo and image -->
             <div class="content">
                 <div class="center-container">
                     <div class="logo">
-                        <img src="images/logo2.png" alt="Logo" height="150px" width="270px">
+                        <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
                         <h3 style="color: white;">JOIN the partner</h3>
                     </div>
                     <div class="image">
@@ -116,8 +119,47 @@
                         <img src="images/rocket.png" alt="Rocket Icon" class="arrow">
                     </div>
                 </div>
-                
             </div>
+
+            <div class="content" style="background-image: url('images/maroom-background-3.jpg');">
+                <div class="center-container">
+                    <div class="quote">
+                        <blockquote style="color: white; text-align: center; font-size: 58px;">
+                            "Education is the most powerful<br>
+                            weapon which you can use, to<br>
+                            change the world<br>
+                            <strong>- Nelson Mandela</strong>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ... Your existing HTML code up to this point ... -->
+
+<div class="content">
+    <div class="center-container">
+        <div class="contact" style="margin-right: 50px;"> <!-- Added margin-right for separation -->
+            <h2 style="color: white; font-size: 52px;">Contact</h2>
+            <table>
+                <tr>
+                    <td style="font-size: 40px; color: white; padding-right: 20px;">Email Address</td> <!-- Added padding-right -->
+                    <td style="font-size: 40px; color: white;">abc@gmail.com</td>
+                </tr>
+                <tr>
+                    <td style="font-size: 40px; color: white; padding-right: 20px;">Phone Number</td> <!-- Added padding-right -->
+                    <td style="font-size: 40px; color: white;">+9434234</td>
+                </tr>
+            </table>
+        </div>
+        <div class="logo">
+            <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
+        </div>
+    </div>
+</div>
+
+<!-- ... Your existing HTML code from here to the end ... -->
+
+
         </div>
         <div class="footer">
             <div class="container">
@@ -127,7 +169,24 @@
     </div>
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
 
+        function handleAnimation() {
+            const quoteSection = document.querySelector('.quote');
+            if (isElementInViewport(quoteSection)) {
+                quoteSection.style.opacity = '1';
+                quoteSection.style.animation = 'swipeUp 1s ease-out';
+                window.removeEventListener('scroll', handleAnimation);
+            }
+        }
+
+        window.addEventListener('scroll', handleAnimation);
+    </script>
 </body>
-
 </html>
