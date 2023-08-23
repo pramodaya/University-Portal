@@ -4,6 +4,20 @@
     <style>
         body {
             background-color: #da5b78;
+            margin: 0px;
+            overflow-y:auto;
+        }
+             /* Add scrollbar styles */
+             body::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: darkgray;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: none;
         }
 
         .center-container {
@@ -134,31 +148,26 @@
                 </div>
             </div>
 
-            <!-- ... Your existing HTML code up to this point ... -->
-
-<div class="content">
-    <div class="center-container">
-        <div class="contact" style="margin-right: 50px;"> <!-- Added margin-right for separation -->
-            <h2 style="color: white; font-size: 52px;">Contact</h2>
-            <table>
-                <tr>
-                    <td style="font-size: 40px; color: white; padding-right: 20px;">Email Address</td> <!-- Added padding-right -->
-                    <td style="font-size: 40px; color: white;">abc@gmail.com</td>
-                </tr>
-                <tr>
-                    <td style="font-size: 40px; color: white; padding-right: 20px;">Phone Number</td> <!-- Added padding-right -->
-                    <td style="font-size: 40px; color: white;">+9434234</td>
-                </tr>
-            </table>
-        </div>
-        <div class="logo">
-            <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
-        </div>
-    </div>
-</div>
-
-<!-- ... Your existing HTML code from here to the end ... -->
-
+            <div class="content">
+                <div class="center-container">
+                    <div class="contact" style="margin-right: 50px;"> <!-- Added margin-right for separation -->
+                        <h2 style="color: white; font-size: 52px;">Contact</h2>
+                        <table>
+                            <tr>
+                                <td style="font-size: 40px; color: white; padding-right: 20px;">Email Address</td> <!-- Added padding-right -->
+                                <td style="font-size: 40px; color: white;">abc@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 40px; color: white; padding-right: 20px;">Phone Number</td> <!-- Added padding-right -->
+                                <td style="font-size: 40px; color: white;">+9434234</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="logo">
+                        <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="footer">
