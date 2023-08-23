@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <style>
         body {
             background-color: #da5b78;
             margin: 0px;
-            overflow-y:auto;
+            overflow-y: auto;
         }
-             /* Add scrollbar styles */
-             body::-webkit-scrollbar {
+
+        /* Add scrollbar styles */
+        body::-webkit-scrollbar {
             width: 0.5em;
         }
 
@@ -42,26 +45,18 @@
         }
 
         @media (max-width: 375px) and (max-height: 667px) {
-            .image img.mainImage {
-                height: 10px;
-                width: 10px;
-            }
-        }
-
-        @media (max-width: 768px) {
             .center-container {
                 flex-direction: column;
             }
 
-            .logo,
-            .image {
-                display: block;
-                margin: 10px auto;
-            }
-
-            .logo img {
-                height: 80vw;
-                width: 80vw;
+            .logo {
+                display: flex;
+                flex-direction: column;
+                /* Display the logo container as a column */
+                align-items: center;
+                /* Align children to the left */
+                width: 100px;
+                height: 30px;
             }
 
             .image img.mainImage {
@@ -74,6 +69,76 @@
                 left: calc(50% - 20px);
             }
         }
+
+        @media (max-width: 768px) {
+            .center-container {
+                flex-direction: column;
+            }
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                /* Display the logo container as a column */
+                align-items: center;
+                /* Align children to the left */
+                width: 100px;
+                height: 30px;
+            }
+
+            .image img.mainImage {
+                height: 50vh;
+                width: 60vw;
+            }
+
+            .image img.arrow {
+                top: -15px;
+                left: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .center-container {
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: row;
+                /* Reset the flex direction for larger screens */
+
+            }
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                /* Display the logo container as a column */
+                align-items: center;
+                /* Align children to the left */
+            }
+
+            .logo img {
+                margin-bottom: 10px;
+                margin-right: 40px;
+                /* Add space between the logo image and the button */
+            }
+
+            .btn-join {
+                /* Reset the top margin */
+                margin-right: 0;
+                /* Reset the right margin */
+            }
+
+            .image {
+                display: block;
+                margin: 10px auto;
+            }
+            .quote {
+                padding-left: 200px;
+                text-align: center;
+            }
+            .contact{
+                margin-right: 0; /* Reset the margin for horizontal centering */
+                text-align: center;
+            }
+        }
+
 
         .image img.mainImage {
             height: 50vh;
@@ -92,8 +157,27 @@
             height: 150px;
         }
 
+        /* Your existing CSS styles */
+
         .btn-join {
-            /* Your button styles here */
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 10px;
+            /* Adjust margin as needed */
+            margin-right: 20px;
+            /* Add margin-right to move the button to the left */
+        }
+
+        .btn-join:hover {
+            background-color: white;
+            color: #da5b78;
         }
 
         .image img {
@@ -104,6 +188,7 @@
             0% {
                 transform: translateY(100%);
             }
+
             100% {
                 transform: translateY(0);
             }
@@ -115,18 +200,23 @@
             opacity: 0;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
+
 <body>
     <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
         <!-- ... Navbar code remains unchanged ... -->
     </nav>
-    <div class="main" >
+    <div class="main">
         <div class="container">
             <div class="content">
                 <div class="center-container">
                     <div class="logo">
                         <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
-                        <h3 style="color: white;">JOIN the partner</h3>
+                        <button class="btn btn-join" data-toggle="modal" data-target="#registrationModal">
+                            WELCOME PLEASE REGISTER FOR THE GIP UPDATES
+                        </button>
+
                     </div>
                     <div class="image">
                         <img class="mainImage" src="images/town.jpeg" alt="Image">
@@ -134,8 +224,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="content" style="background-image: url('images/maroom-background-3.jpg');">
+    <div>
+        <div class="main">
+           <div class="content" style="background-image: url('images/maroom-background-3.jpg');">
                 <div class="center-container">
                     <div class="quote">
                         <blockquote style="color: white; text-align: center; font-size: 58px;">
@@ -148,18 +242,21 @@
                 </div>
             </div>
 
+
             <div class="content">
                 <div class="center-container">
                     <div class="contact" style="margin-right: 50px;"> <!-- Added margin-right for separation -->
                         <h2 style="color: white; font-size: 52px;">Contact</h2>
                         <table>
                             <tr>
-                                <td style="font-size: 40px; color: white; padding-right: 20px;">Email Address</td> <!-- Added padding-right -->
-                                <td style="font-size: 40px; color: white;">abc@gmail.com</td>
+                                <td style="font-size: 30px; color: white; padding-right: 20px;">Email Address</td>
+                                <!-- Added padding-right -->
+                                <td style="font-size: 30px; color: white;">abc@gmail.com</td>
                             </tr>
                             <tr>
-                                <td style="font-size: 40px; color: white; padding-right: 20px;">Phone Number</td> <!-- Added padding-right -->
-                                <td style="font-size: 40px; color: white;">+9434234</td>
+                                <td style="font-size: 30px; color: white; padding-right: 20px;">Phone Number</td>
+                                <!-- Added padding-right -->
+                                <td style="font-size: 30px; color: white;">+9434232344</td>
                             </tr>
                         </table>
                     </div>
@@ -176,6 +273,32 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="mb-4">Register for GIP Updates</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script>
@@ -197,5 +320,51 @@
 
         window.addEventListener('scroll', handleAnimation);
     </script>
+
+    <script>
+        // Get the modal element
+        const modal = document.getElementById("registrationModal");
+
+        // Get the button that opens the modal
+        const btnJoin = document.querySelector(".btn-join");
+
+        // Get the <span> element that closes the modal
+        const closeBtn = document.querySelector(".close");
+
+        // When the user clicks on the button, open the modal
+        btnJoin.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent the default behavior of the button
+            modal.style.display = "block";
+        });
+
+
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Handle form submission
+        const registrationForm = document.getElementById("registrationForm");
+        registrationForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            // You can process the name and email data here
+            console.log("Name:", name);
+            console.log("Email:", email);
+            modal.style.display = "none"; // Close the modal
+        });
+    </script>
+
+
+
 </body>
+
 </html>
