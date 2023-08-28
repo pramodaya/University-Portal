@@ -213,7 +213,7 @@
                 <div class="center-container">
                     <div class="logo">
                         <img src="images/logo2.png" alt="Logo" height="250px" width="470px">
-                        <button class="btn btn-join" data-toggle="modal" data-target="#registrationModal">
+                        <button id="openModalBtn" class="btn btn-join">
                             WELCOME PLEASE REGISTER FOR THE GIP UPDATES
                         </button>
 
@@ -325,18 +325,17 @@
         // Get the modal element
         const modal = document.getElementById("registrationModal");
 
-        // Get the button that opens the modal
-        const btnJoin = document.querySelector(".btn-join");
+        // Get the open modal button by its id
+        const openModalBtn = document.getElementById("openModalBtn");
 
         // Get the <span> element that closes the modal
         const closeBtn = document.querySelector(".close");
 
         // When the user clicks on the button, open the modal
-        btnJoin.addEventListener("click", (event) => {
+        openModalBtn.addEventListener("click", (event) => {
             event.preventDefault(); // Prevent the default behavior of the button
             modal.style.display = "block";
         });
-
 
         // When the user clicks on <span> (x), close the modal
         closeBtn.addEventListener("click", () => {
@@ -361,6 +360,7 @@
             console.log("Email:", email);
             modal.style.display = "none"; // Close the modal
         });
+
     </script>
 
 
